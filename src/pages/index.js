@@ -1,3 +1,12 @@
 import React from "react";
+import { useSiteMetadata } from '../hooks/useSiteMetadata'
 
-export default () => <h1>Hello World</h1>;
+export default () => {
+    const { title, description } = useSiteMetadata()
+    return (
+        <>
+            <h1>{title}</h1>
+            <p>{description}</p>
+        </>
+    )
+}
