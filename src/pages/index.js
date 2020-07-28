@@ -1,20 +1,29 @@
 import React from "react";
+import Dump from "../components/Dump";
 import { Layout } from "../components/Layout";
-import { graphql as gql } from "gatsby";
+import { graphql as gql, Link } from "gatsby";
+import styled from "styled-components";
+
+const IndexWrapper = styled.main``;
+
+const PostWrapper = styled.div``;
 
 export default ({ data }) => {
   return (
-    <React.Fragment>
-      <Layout>
-        {data.allMdx.nodes.map(({ excerpt, frontmatter }) => (
-          <React.Fragment>
-            <h1>{frontmatter.title}</h1>
-            <p>{frontmatter.date}</p>
-            <p>{excerpt}</p>
-          </React.Fragment>
+    <Layout>
+      <IndexWrapper>
+        <Dump data={data} />
+        {data.allMdx.nodes.map(({ excerpt, frontmatter, id, fields }) => (
+          <PostWrapper key={id}>
+            <Link to={fields.slug}>
+              <h1>{frontmatter.title}</h1>
+              <p>{frontmatter.date}</p>
+              <p>{excerpt}</p>
+            </Link>
+          </PostWrapper>
         ))}
-      </Layout>
-    </React.Fragment>
+      </IndexWrapper>
+    </Layout>
   );
 };
 
@@ -30,6 +39,9 @@ export const query = gql`
         frontmatter {
           title
           date
+        }
+        fields {
+          slug
         }
       }
     }
