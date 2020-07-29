@@ -16,12 +16,12 @@ export default ({ data, pageContext }) => {
       <MDXRenderer>{body}</MDXRenderer>
       {previous && (
         <Link to={previous.fields.slug}>
-          <p>{previous.frontmatter.title}</p>
+          <p>previous: {previous.frontmatter.title}</p>
         </Link>
       )}
       {next && (
         <Link to={next.fields.slug}>
-          <p>{next.frontmatter.title}</p>
+          <p>next: {next.frontmatter.title}</p>
         </Link>
       )}
     </Layout>
