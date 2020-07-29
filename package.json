@@ -19,6 +19,8 @@
     "gatsby-plugin-mdx": "^1.2.29",
     "gatsby-plugin-styled-components": "^3.3.10",
     "gatsby-source-filesystem": "^2.3.23",
+    "global": "^4.4.0",
+    "netlify-cli": "^2.58.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "styled-components": "^5.1.1"
