@@ -12,12 +12,12 @@ export default ({ data }) => {
   return (
     <Layout>
       <IndexWrapper>
-        <Dump data={data} />
+        {/* <Dump data={data} /> */}
         {data.allMdx.nodes.map(({ excerpt, frontmatter, id, fields }) => (
           <PostWrapper key={id}>
             <Link to={fields.slug}>
               <h1>{frontmatter.title}</h1>
-              <p>{frontmatter.date}</p>
+              <p>{frontmatter.date.slice(0, 10)}</p>
               <p>{excerpt}</p>
             </Link>
           </PostWrapper>
